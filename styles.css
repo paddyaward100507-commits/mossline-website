@@ -1,17 +1,28 @@
 :root {
-  --accent: #2FD999;
-  --accent-deep: #0F6E56;
-  --accent-soft: #A8F0D1;
-  --accent-ink: #04140D;
+  --accent: #17A97C;
+  --accent-deep: #0B5943;
+  --accent-soft: #8FE9C4;
+  --accent-ink: #FFFFFF;
   --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-deep));
-  --text-primary: #F2F4F3;
-  --text-secondary: #888F8C;
-  --bg: #0A0B0B;
-  --bg-alt: #101111;
-  --surface: #161817;
-  --surface-hover: #1C1F1D;
-  --border: rgba(255, 255, 255, 0.07);
-  --border-strong: rgba(47, 217, 153, 0.32);
+
+  --text-primary: #23262A;
+  --text-secondary: #5B6066;
+  --bg: #F6F7F6;
+  --bg-alt: #ECEEEC;
+  --surface: #FFFFFF;
+  --surface-hover: #F4F5F4;
+  --border: rgba(20, 25, 22, 0.10);
+  --border-strong: rgba(23, 169, 124, 0.35);
+
+  --dark-bg: #1E2320;
+  --dark-bg-2: #121614;
+  --dark-surface: #262C28;
+  --dark-surface-hover: #2E352F;
+  --dark-text-primary: #F3F5F3;
+  --dark-text-secondary: #A8B0AC;
+  --dark-border: rgba(255, 255, 255, 0.10);
+  --dark-border-strong: rgba(143, 233, 196, 0.35);
+
   --radius: 12px;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
@@ -68,7 +79,8 @@ h2 {
   border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
-  background: var(--bg);
+  background: rgba(246, 247, 246, 0.88);
+  backdrop-filter: blur(10px);
   z-index: 20;
 }
 
@@ -191,7 +203,7 @@ h2 {
   aspect-ratio: 4 / 3;
   border-radius: 8px;
   margin-bottom: 6px;
-  background: linear-gradient(135deg, rgba(47, 217, 153, 0.22), var(--bg-alt));
+  background: linear-gradient(135deg, rgba(23, 169, 124, 0.22), var(--bg-alt));
   border: 1px solid var(--border);
 }
 
@@ -206,10 +218,19 @@ h2 {
   padding-top: 12px;
 }
 
-/* Hero */
+/* Hero (dark contrast section) */
 .hero {
+  --bg: var(--dark-bg);
+  --bg-alt: var(--dark-bg-2);
+  --surface: var(--dark-surface);
+  --surface-hover: var(--dark-surface-hover);
+  --text-primary: var(--dark-text-primary);
+  --text-secondary: var(--dark-text-secondary);
+  --border: var(--dark-border);
+  --border-strong: var(--dark-border-strong);
+  color: var(--text-primary);
   padding: 110px 0 90px;
-  background: linear-gradient(160deg, var(--bg) 0%, #0D1712 55%, var(--bg) 100%);
+  background: linear-gradient(160deg, var(--dark-bg) 0%, var(--dark-bg-2) 100%);
 }
 
 .hero-inner {
@@ -413,12 +434,12 @@ h2 {
 
 .price-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 28px rgba(20, 25, 22, 0.12);
 }
 
 .price-card-featured {
   border-color: var(--accent);
-  background: linear-gradient(160deg, rgba(47, 217, 153, 0.10), var(--surface) 55%);
+  background: linear-gradient(160deg, rgba(23, 169, 124, 0.10), var(--surface) 55%);
   position: relative;
 }
 
@@ -496,12 +517,12 @@ h2 {
 
 .portfolio-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 28px rgba(20, 25, 22, 0.12);
 }
 
 .portfolio-thumb {
   aspect-ratio: 4 / 3;
-  background: linear-gradient(135deg, rgba(47, 217, 153, 0.20), var(--bg-alt));
+  background: linear-gradient(135deg, rgba(23, 169, 124, 0.20), var(--bg-alt));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -601,7 +622,7 @@ h2 {
 
 .why-item:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 28px rgba(20, 25, 22, 0.12);
 }
 
 .why-icon {
@@ -684,7 +705,7 @@ h2 {
 .compare-featured {
   position: relative;
   border-color: var(--accent);
-  background: linear-gradient(160deg, rgba(47, 217, 153, 0.12), var(--surface) 55%);
+  background: linear-gradient(160deg, rgba(23, 169, 124, 0.12), var(--surface) 55%);
 }
 
 .compare-featured li {
@@ -730,10 +751,17 @@ h2 {
   font-weight: 500;
 }
 
-/* Contact */
+/* Contact (dark contrast section) */
 .contact {
+  --bg: var(--dark-bg);
+  --surface: var(--dark-surface);
+  --text-primary: var(--dark-text-primary);
+  --text-secondary: var(--dark-text-secondary);
+  --border: var(--dark-border);
+  --border-strong: var(--dark-border-strong);
+  color: var(--text-primary);
   padding: 100px 0;
-  background: linear-gradient(135deg, #123329 0%, #060807 100%);
+  background: linear-gradient(135deg, #1B4438 0%, var(--dark-bg-2) 100%);
   border-top: 1px solid var(--border);
 }
 

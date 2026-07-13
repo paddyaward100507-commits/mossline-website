@@ -1,0 +1,7 @@
+<svg width="100%" viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Mossline Digital wordmark (dark)</title>
+<text x="340" y="130" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="42" font-weight="500" fill="#23262A">Mossline</text>
+<text x="340" y="156" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="400" letter-spacing="4" fill="#5B6066">DIGITAL</text>
+<line x1="230" y1="182" x2="410" y2="182" stroke="#17A97C" stroke-width="3" stroke-linecap="round"/>
+<path d="M 410 182 Q 426 150 458 156 Q 442 178 410 182 Z" fill="#8FE9C4" stroke="#17A97C" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>
