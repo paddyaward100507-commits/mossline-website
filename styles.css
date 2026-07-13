@@ -80,6 +80,7 @@ h2 {
   position: sticky;
   top: 0;
   background: rgba(246, 247, 246, 0.88);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   z-index: 20;
 }
@@ -218,19 +219,10 @@ h2 {
   padding-top: 12px;
 }
 
-/* Hero (dark contrast section) */
+/* Hero */
 .hero {
-  --bg: var(--dark-bg);
-  --bg-alt: var(--dark-bg-2);
-  --surface: var(--dark-surface);
-  --surface-hover: var(--dark-surface-hover);
-  --text-primary: var(--dark-text-primary);
-  --text-secondary: var(--dark-text-secondary);
-  --border: var(--dark-border);
-  --border-strong: var(--dark-border-strong);
-  color: var(--text-primary);
   padding: 110px 0 90px;
-  background: linear-gradient(160deg, var(--dark-bg) 0%, var(--dark-bg-2) 100%);
+  background: linear-gradient(160deg, #FFFFFF 0%, var(--bg) 45%, #E3EFE9 100%);
 }
 
 .hero-inner {
@@ -265,7 +257,7 @@ h2 {
 }
 
 .hero h1 .highlight {
-  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  background: linear-gradient(90deg, var(--accent-deep), var(--accent));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -814,34 +806,53 @@ h2 {
   .hero-visual {
     order: -1;
   }
+  .header-inner {
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 16px 12px;
+  }
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 18px;
+  }
+  .nav-cta {
+    padding: 7px 14px;
+  }
+  .nav-item {
+    position: static;
+  }
   .nav-dropdown-panel {
-    width: 300px;
+    position: fixed;
+    left: 50%;
+    top: 175px;
+    width: min(360px, calc(100vw - 32px));
+    transform: translate(-50%, -8px);
+  }
+  .nav-item:hover .nav-dropdown-panel,
+  .nav-item.open .nav-dropdown-panel {
+    transform: translate(-50%, 0);
+  }
+  .brand-logo {
+    height: 72px;
   }
 }
 
 @media (max-width: 640px) {
-  .nav {
-    gap: 16px;
-  }
-  .nav-dropdown-panel {
-    left: auto;
-    right: -24px;
-    transform: translate(0, -8px);
-  }
-  .nav-item:hover .nav-dropdown-panel,
-  .nav-item.open .nav-dropdown-panel {
-    transform: translate(0, 0);
+  .nav a,
+  .nav-dropdown-toggle {
+    font-size: 0.9rem;
   }
   .brand-logo {
-    height: 72px;
+    height: 64px;
+  }
+  .hero {
+    padding: 64px 0 56px;
   }
   .hero h1 {
     font-size: 2rem;
   }
   .stats-grid {
     grid-template-columns: 1fr;
-  }
-  .dropdown-portfolio-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
