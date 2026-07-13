@@ -5,13 +5,14 @@ for SMEs in Ireland and the UK.
 
 ## Structure
 
-- `index.html` — single-page site (hero, services/pricing, portfolio, process, why-us, sectors, contact)
+- `index.html` — main page (hero, services/pricing, process, why-us, compare, sectors, contact)
+- `portfolio.html` — portfolio page, reached via the Portfolio dropdown in the nav
 - `styles.css` — styling
 - `assets/` — logo and wordmark
 
 ## Adding a portfolio project
 
-Find the `<section id="portfolio">` block in `index.html`. Duplicate one
+Find the `<section class="portfolio">` block in `portfolio.html`. Duplicate one
 `.portfolio-card` element, then:
 
 1. Replace the `.portfolio-tag` text with the sector (e.g. "Hospitality")
@@ -20,7 +21,8 @@ Find the `<section id="portfolio">` block in `index.html`. Duplicate one
    `<img src="assets/portfolio/project-name.jpg" alt="...">` in place of the
    `<svg class="portfolio-thumb-icon">` element
 4. Optionally add a matching card to the nav dropdown preview
-   (`.dropdown-portfolio-grid` in the `<header>`)
+   (`.dropdown-portfolio-grid` in the `<header>` of both `index.html` and
+   `portfolio.html`)
 
 ## Running locally
 
