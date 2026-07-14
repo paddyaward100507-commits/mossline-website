@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mossline Digital — Social Ad</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1080px;
+    height: 1350px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(160deg, #FFFFFF 0%, #F6F7F6 55%, #E3F3EC 100%);
+    overflow: hidden;
+  }
+
+  .canvas {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 64px 72px 56px;
+  }
+
+  /* decorative blobs */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(2px);
+  }
+  .blob-1 { width: 420px; height: 420px; top: -140px; right: -140px; background: radial-gradient(circle, rgba(23,169,124,0.16), transparent 70%); }
+  .blob-2 { width: 360px; height: 360px; bottom: -100px; left: -120px; background: radial-gradient(circle, rgba(23,169,124,0.10), transparent 70%); }
+
+  .brand {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    z-index: 2;
+  }
+
+  .leaf-mark {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .brand-name {
+    font-size: 30px;
+    font-weight: 700;
+    color: #23262A;
+    letter-spacing: -0.01em;
+  }
+
+  .brand-name span {
+    color: #5B6066;
+    font-weight: 500;
+  }
+
+  .headline-block {
+    position: relative;
+    z-index: 2;
+    margin-top: 90px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 1.5px solid rgba(23,169,124,0.35);
+    color: #0B5943;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 10px 22px;
+    border-radius: 999px;
+    margin-bottom: 34px;
+  }
+
+  h1 {
+    font-size: 76px;
+    line-height: 1.08;
+    color: #16181B;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    max-width: 880px;
+  }
+
+  h1 .accent {
+    background: linear-gradient(90deg, #0B5943, #17A97C);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .subline {
+    margin-top: 30px;
+    font-size: 34px;
+    line-height: 1.4;
+    color: #4A4F53;
+    max-width: 780px;
+    font-weight: 500;
+  }
+
+  .mock-window {
+    position: relative;
+    z-index: 2;
+    margin-top: 56px;
+    width: 620px;
+    height: 300px;
+    background: #FFFFFF;
+    border-radius: 22px;
+    border: 2px solid rgba(23,169,124,0.35);
+    box-shadow: 0 30px 60px rgba(20,25,22,0.14);
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .mock-bar {
+    height: 40px;
+    background: #F6F7F6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 18px;
+  }
+  .mock-dot { width: 12px; height: 12px; border-radius: 50%; background: #D8DBD9; }
+  .mock-dot.g { background: #17A97C; }
+
+  .mock-body { padding: 28px 30px; }
+  .mock-line { height: 22px; border-radius: 6px; background: #E9EDEA; margin-bottom: 16px; }
+  .mock-line.title { width: 60%; height: 30px; background: #23262A; opacity: 0.85; }
+  .mock-line.short { width: 40%; }
+  .mock-btn { width: 180px; height: 46px; border-radius: 23px; background: linear-gradient(135deg,#17A97C,#0B5943); margin-top: 10px; }
+
+  .spacer { flex: 1; }
+
+  .trust-row {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .trust-pill {
+    background: #FFFFFF;
+    border: 1.5px solid #E3E7E4;
+    color: #23262A;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 999px;
+  }
+  .trust-pill.check { color: #0B5943; }
+
+  .cta-bar {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(135deg, #17A97C, #0B5943);
+    border-radius: 24px;
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 20px 50px rgba(11,89,67,0.35);
+  }
+
+  .cta-text {
+    color: #FFFFFF;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .cta-text .small {
+    display: block;
+    font-size: 24px;
+    font-weight: 500;
+    opacity: 0.85;
+    margin-top: 6px;
+  }
+
+  .cta-button {
+    background: #FFFFFF;
+    color: #0B5943;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 20px 36px;
+    border-radius: 16px;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<div class="canvas">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="brand">
+    <svg class="leaf-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 8 50 L 42 50" stroke="#17A97C" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 42 50 Q 48 24 62 18 Q 54 42 42 50 Z" fill="#8FE9C4" stroke="#17A97C" stroke-width="2" stroke-linejoin="round"/>
+    </svg>
+    <div class="brand-name">Mossline <span>Digital</span></div>
+  </div>
+
+  <div class="headline-block">
+    <span class="eyebrow">🌿 Websites for Irish &amp; UK SMEs</span>
+    <h1>Your website should be <span class="accent">selling for you.</span></h1>
+    <p class="subline">Fixed-price, mobile-first websites built to turn visitors into enquiries — live in just 2–6 weeks.</p>
+  </div>
+
+  <div class="mock-window">
+    <div class="mock-bar">
+      <div class="mock-dot"></div>
+      <div class="mock-dot"></div>
+      <div class="mock-dot g"></div>
+    </div>
+    <div class="mock-body">
+      <div class="mock-line title"></div>
+      <div class="mock-line"></div>
+      <div class="mock-line short"></div>
+      <div class="mock-btn"></div>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="trust-row">
+    <span class="trust-pill check">✓ Fixed Price</span>
+    <span class="trust-pill check">✓ 2–6 Weeks</span>
+    <span class="trust-pill check">✓ Ireland &amp; UK</span>
+  </div>
+
+  <div class="cta-bar">
+    <div class="cta-text">Get your free quote today
+      <span class="small">No obligation · Reply within 1 business day</span>
+    </div>
+    <div class="cta-button">mosslinedigital.ie</div>
+  </div>
+</div>
+
+</body>
+</html>
