@@ -99,6 +99,29 @@
     max-width: 92%;
   }
 
+  .price-badge {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 4%;
+    background: linear-gradient(135deg, #17A97C, #0B5943);
+    color: #FFFFFF;
+    padding: 0.55em 1.1em;
+    border-radius: 999px;
+    box-shadow: 0 12px 26px rgba(11,89,67,0.3);
+  }
+
+  .price-badge .amount {
+    font-size: clamp(16px, 2.6vw, 23px);
+    font-weight: 800;
+  }
+
+  .price-badge .label {
+    font-size: clamp(11px, 1.5vw, 15px);
+    font-weight: 600;
+    opacity: 0.9;
+  }
+
   .mock-window {
     position: relative;
     z-index: 2;
@@ -180,6 +203,7 @@
         <span class="eyebrow">🌿 Websites for Irish &amp; UK SMEs</span>
         <h1>Your website should be <span class="accent">selling for you.</span></h1>
         <p class="subline">Fixed-price, mobile-first websites built to turn visitors into enquiries — live in just 2–6 weeks.</p>
+        <div class="price-badge"><span class="amount">Starting at €399</span><span class="label">/ £340</span></div>
       </div>
 
       <div class="mock-window">
