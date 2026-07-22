@@ -1,0 +1,10 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Lets the site call short paths like /api/create-checkout-session instead of
+# the longer /.netlify/functions/create-checkout-session.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200

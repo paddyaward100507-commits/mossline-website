@@ -1,0 +1,9 @@
+{
+  "name": "mossline-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Mossline Digital marketing site + Netlify Functions for Stripe.",
+  "dependencies": {
+    "stripe": "^17.4.0"
+  }
+}

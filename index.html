@@ -189,7 +189,8 @@
             <li>Backups &amp; uptime monitoring</li>
             <li>Small content edits</li>
           </ul>
-          <a href="mailto:mosslinedigital@outlook.com?subject=Quote%20Request%20-%20Care%20Plan" class="price-select">Select Care Plan</a>
+          <button type="button" class="price-select" data-checkout-plan="careplan">Select Care Plan</button>
+          <p class="price-footnote">Checkout is for the standard plan — larger sites, get in touch for a custom quote.</p>
         </div>
 
         <div class="price-card">
@@ -201,7 +202,7 @@
             <li>Unlimited revisions on chosen design</li>
             <li>Final files (PNG, SVG)</li>
           </ul>
-          <a href="mailto:mosslinedigital@outlook.com?subject=Quote%20Request%20-%20Logo%20Creation" class="price-select">Select Logo Creation</a>
+          <button type="button" class="price-select" data-checkout-plan="logo">Select Logo Creation</button>
         </div>
       </div>
     </div>
@@ -356,6 +357,36 @@
         el.classList.remove('open');
         el.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
       }
+    });
+  });
+
+  // Stripe Checkout: Logo Creation and Care Plan are fixed-price, so they go
+  // straight to checkout. Starter/Growth/E-commerce stay as quote requests
+  // (mailto) since those are "from" prices that need a scoping call first.
+  document.querySelectorAll('[data-checkout-plan]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var plan = btn.dataset.checkoutPlan;
+      var originalText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Redirecting…';
+
+      fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plan: plan }),
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Checkout request failed');
+          return res.json();
+        })
+        .then(function (data) {
+          window.location.href = data.url;
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = originalText;
+          alert('Sorry, checkout could not be started. Please try again or email mosslinedigital@outlook.com.');
+        });
     });
   });
 

@@ -1,2 +1,5 @@
 .DS_Store
 marketing/
+node_modules/
+.env
+.netlify/
